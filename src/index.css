@@ -1,0 +1,324 @@
+:root {
+  /* Institutional Palette */
+  --color-primary: #003466; /* Deep Navy Blue */
+  --color-primary-dark: #002244; /* Even darker for footer */
+  --color-primary-hover: #002244;
+  --color-primary-light: #6699CC; /* Lighter shade for text on primary bg */
+  --color-primary-lightest: #E0F2F7; /* Very light for subtle accents */
+
+  --color-accent: #007BFF; /* Brighter, more vibrant blue for actions/highlights */
+  --color-accent-hover: #0056b3;
+
+  --color-bg-body: #F8FAFC; /* Lighter, softer body background */
+  --color-bg-surface: #FFFFFF; /* White for cards and main content areas */
+  --color-bg-muted: #E2E8F0; /* Muted background for sections */
+
+  --color-text-main: #1A202C; /* Darker, more legible main text */
+  --color-text-muted: #4A5568; /* Softer muted text */
+  --color-text-inverse: #FFFFFF;
+
+  --border-color: #E2E8F0; /* Softer border color */
+
+  /* Typography */
+  --font-main: 'Google Sans Code', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Spacing */
+  --container-width: 1280px; /* Slightly wider container */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2.5rem;
+  --spacing-xxl: 5rem;
+}
+
+/* Import Google Font - Google Sans Code */
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@300;400;500;600;700&display=swap');
+
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-main);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-body);
+  line-height: 1.65; /* Increased for better readability */
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px; /* Base font size */
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Global Link Styling */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Global Container */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* Visual Effects */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out forwards;
+  opacity: 0; /* Start invisible */
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+
+/* Background Variants */
+.bg-white { background-color: var(--color-bg-surface); }
+
+.bg-surface {
+  background-color: var(--color-bg-muted); /* Changed to muted for sections */
+  /* Removed top/bottom borders for cleaner section separation */
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.bg-pattern-dots {
+  background-color: var(--color-bg-body); /* Use body background */
+  background-image: radial-gradient(var(--border-color) 1px, transparent 1px); /* Softer dots */
+  background-size: 28px 28px; /* Slightly larger pattern */
+}
+
+/* Section Separators & Layout */
+.section {
+  padding: var(--spacing-xxl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.container-narrow {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* Component Utilities */
+.badge {
+  display: inline-block;
+  padding: 0.4rem 1rem; /* More generous padding */
+  border-radius: 99px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-primary {
+  background-color: var(--color-primary-lightest);
+  color: var(--color-primary);
+}
+
+.badge-hero { /* Specific style for hero badge */
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9rem;
+}
+
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.8rem; /* More generous padding */
+  border-radius: 6px; /* Slightly more rounded */
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-family: var(--font-main);
+  border: none; /* Default to no border */
+}
+
+.btn-sm {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+.btn-lg {
+  padding: 1.1rem 2.5rem;
+  font-size: 1.15rem;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 51, 102, 0.2); /* Subtle shadow */
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  box-shadow: 0 6px 15px rgba(0, 51, 102, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+.btn-accent:hover {
+  background-color: var(--color-accent-hover);
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  border: 2px solid var(--border-color); /* Softer outline border */
+  color: var(--color-text-main);
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  border-color: var(--color-primary); /* Primary color on hover */
+  color: var(--color-primary);
+  background-color: var(--color-bg-surface);
+  transform: translateY(-1px);
+}
+
+.btn-light { /* For buttons on dark backgrounds */
+  background-color: white;
+  color: var(--color-primary);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-light:hover {
+  background-color: var(--color-bg-muted);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.btn-outline-light { /* For outline buttons on dark backgrounds */
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.4);
+  color: white;
+}
+
+.btn-outline-light:hover {
+  border-color: white;
+  background: rgba(255,255,255,0.1);
+  transform: translateY(-1px);
+}
+
+.btn-filter { /* Specific style for filter buttons */
+  border-radius: 9999px; /* Pill shape */
+  padding: 0.7rem 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* General Grid */
+.grid {
+  display: grid;
+  gap: var(--spacing-xl); /* Default grid gap */
+}
+
+/* Responsive Grid Classes (using Tailwind-like naming) */
+/* Defined in App.css for easier use with inline styles */
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+
+/* Input fields */
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  color: var(--color-text-main);
+  background-color: var(--color-bg-surface);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-md); /* Smaller padding on mobile */
+  }
+
+  .section {
+    padding: var(--spacing-xl) 0; /* Smaller section padding on mobile */
+  }
+
+  h1 { font-size: 2.8rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+
+  .grid-2, .grid-3 { grid-template-columns: 1fr; } /* Stack columns on mobile */
+
+  .nav-links {
+    gap: 1.5rem; /* Closer links on mobile */
+  }
+
+  .navbar {
+    height: 65px; /* Slightly smaller navbar on mobile */
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr; /* Stack footer columns */
+    text-align: center;
+  }
+
+  .footer-logo, .footer-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-social-links {
+    margin-top: var(--spacing-md);
+  }
+}
